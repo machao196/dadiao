@@ -81,7 +81,7 @@ class RegistController extends ApiController {
         }
         $this->outPut();
     }
-
+	
     protected function activeMail($email,$userID,$salt){
     	$time = time();
         $url = APP_DOMAIN."home/active/index/t/".$time.'/u/'.$email.'/hash/'.md5($time.$userID.$salt);

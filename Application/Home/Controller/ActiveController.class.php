@@ -9,14 +9,18 @@ class ActiveController extends WebController{
 	 	$hash = I("get.hash");
 	 	$User = D("Common/User");
 	 	if(time() - $t > 86400){
-	 		echo '超时';exit;
+	 		throw new \Exception("超时");
 	 	}
 	 	
 	 	$user = $User->getUserByEmail($u);
 	 	//print_r($user);exit;
 	 	if($hash != md5($t.$user['userid'].$user['salt'])){
-	 		echo '连接错误';exit;
+	 		throw new \Exception("连接错误");
 	 	}
+	 	if($user['isactive'] == 1){
+	 		throw new \Exception("已激活");
+	 	}
+	 	$User->UserID = $user['userid'];
 	 	$User->IsActive = 1;
 	 	$User->save();
 	 }
