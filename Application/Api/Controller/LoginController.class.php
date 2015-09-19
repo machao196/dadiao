@@ -1,19 +1,45 @@
 <?php
-namespace Home\Controller;
-use Home\Common\ApiController;
-use Common\Common\Mail;
+namespace Api\Controller;
+use Api\Common\ApiController;
 class LoginController extends ApiController {
+	protected $_errorCode = array(
+			'err_login_account_not_exist'=>20011,
+			'err_login_wrong_password'=>20012,
+			'err_login_account_not_actived'=>20013);
 	
     public function index(){
-        $mail = new Mail(array('ishtml'=>true));
-        $mail->SendMail('718281962@qq.com','激活邮件','<b>激活邮件</b>：请你点击下面的连接：。');
     	if(IS_POST){
     		$account = I("post.Account");
     		$password = I("post.Password");
     		$Remember = I("post.Remember");
-    		$User = D('User');
-    		$User->select();
+    		$User = M('User');
+    		$userData = $User->where("(Email = '%s' or Mobile = '%s') and Deleted = 0",array($account,$account))->find();
+    		if(!$userData){
+    			$this->outPut('err_login_account_not_exist','账号不存在');
+    		}
+    		if($userData['password'] != $this->encryPassword($password,$userData['salt'])){
+    			$this->outPut('err_login_wrong_password','密码错误');
+    		}
+    		if(!isset($userData['isactive']) || $userData['isactive'] == 0){
+    			$this->outPut('err_login_account_not_actived','账号未激活');
+    		}
+    		if($Remember == 1){
+    			$this->remember($userData['userid'], $userData['salt']);
+    		}
+    		$this->setLogin($userData['userid']);
+    		$this->outPut('success','SUCCESS');
     	}
     	$this->methodError();
+    }
+    
+    public function uid(){
+    	//header("content-type:text/html;charset=utf8");
+    	//print_r($_SESSION);
+    	if($this->isLogin()){
+    		echo $this->getCurUserID();
+    	}
+    	else{
+    		echo '没有登录';
+    	}
     }
 }

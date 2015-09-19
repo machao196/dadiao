@@ -19,15 +19,15 @@ class RegistController extends ApiController {
         return preg_match($RegExp,$Argv)?$Argv:false;  
     }
     protected function get_unique_id($length=32, $pool="")
-{
-    if($pool == "") $pool .= "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    mt_srand ((double) microtime() * 1000000);
-    $unique_id = "";
-    for ($index = 0; $index < $length; $index++) {
-        $unique_id .= substr($pool, (mt_rand()%(strlen($pool))), 1);
-    }
-    return $unique_id;
-}
+	{
+	    if($pool == "") $pool .= "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	    mt_srand ((double) microtime() * 1000000);
+	    $unique_id = "";
+	    for ($index = 0; $index < $length; $index++) {
+	        $unique_id .= substr($pool, (mt_rand()%(strlen($pool))), 1);
+	    }
+	    return $unique_id;
+	}
     public function index(){
     	
     	if(!IS_POST){
@@ -44,8 +44,8 @@ class RegistController extends ApiController {
         if(!$this->isMobile($account) && !$this->isMail($account)){
             $this->outPut('err_regist_account_format','手机或邮箱格式不正确');
         }
-        if(empty($password) || strlen($password) < 6 || strlen($password) >20 ){
-           $this->outPut('err_regist_password_format','密码应在6-20个字符之间');
+        if(empty($password) || strlen($password) < 6 || strlen($password) >16 ){
+           $this->outPut('err_regist_password_format','密码应在6-16个字符之间');
         }
         if($RePassword != $password){
             $this->outPut('err_regist_repassword','密码和确认密码不相同');
@@ -68,7 +68,7 @@ class RegistController extends ApiController {
         $User->Sex = 0;
     	$User->IsActive = 0;
         $User->CreateTime = time();
-        $User->Delete = 0;
+        $User->Deleted = 0;
         $userID = $User->add();
         if(!$userID){
         	$this->outPut('err_system','插入用户失败');	
