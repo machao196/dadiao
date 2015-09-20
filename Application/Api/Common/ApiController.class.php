@@ -130,9 +130,9 @@ class ApiController extends Controller {
     protected function getAvata($userID,$type='small'){
     	$type = $type == 'small'?'small':'big';
     	if(file_exists(ROOT_PATH."Public/".$this->getAvataPath($userID).$userID.".".$type.".jpg")){
-    		return $this->getAvataPath($userID).$userID.".".$type.".jpg";
+    		return APP_DOMAIN.$this->getAvataPath($userID).$userID.".".$type.".jpg";
     	}else{
-    		return "avata/default.".$type.".jpg";
+    		return APP_DOMAIN."avata/default.".$type.".jpg";
     	}
     }
     protected function getAvataPath($userID){
