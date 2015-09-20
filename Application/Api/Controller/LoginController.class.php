@@ -27,7 +27,14 @@ class LoginController extends ApiController {
     			$this->remember($userData['userid'], $userData['salt']);
     		}
     		$this->setLogin($userData['userid']);
-    		$this->outPut('success','SUCCESS');
+    		
+    		$userData['avata'] = $this->getAvata($this->getCurUserID(),'big');
+    		$userData['avatasmall'] = $this->getAvata($this->getCurUserID(),'small');
+    		unset($userData['password']);
+    		unset($userData['salt']);
+    		unset($userData['isactive']);
+    		unset($userData['deleted']);
+    		$this->outPut('success','SUCCESS',$userData);
     	}
     	$this->methodError();
     }
