@@ -53,6 +53,9 @@ class ApiController extends Controller {
 	protected function setLogin($userID){
 		session('userid',$userID);
 	}
+	protected function setLogout(){
+		session(null);
+	}
 	/**
 	 * 获取当前用户ID
 	 * @return Ambigous <boolean, mixed, NULL, unknown>

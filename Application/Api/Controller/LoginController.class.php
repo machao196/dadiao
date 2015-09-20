@@ -38,7 +38,10 @@ class LoginController extends ApiController {
     	}
     	$this->methodError();
     }
-    
+    public function logout(){
+    	$this->setLogout();
+    	$this->outPut('success','SUCCESS');
+    }
     public function uid(){
     	//header("content-type:text/html;charset=utf8");
     	//print_r($_SESSION);
