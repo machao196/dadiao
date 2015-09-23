@@ -79,11 +79,29 @@ class ClothesController extends ApiController {
         }
     }
     protected function getHeight($pvalue){
-        return '160以下';
+        if($pvalue < 160){
+            return '160以下';
+        }elseif($pvalue >= 161 && $pvalue <= 165){
+            return '161-165';
+        }elseif($pvalue >= 166 && $pvalue <= 169){
+            return '166-169';
+        }else{
+            return '170以上';
+        }
     }
 
     protected function getWeight($pvalue){
-        return '';
+        if($pvalue <= 95){
+            return '95斤以下';
+        }elseif($pvalue >= 96 && $pvalue <= 110){
+            return '96-110斤';
+        }elseif($pvalue >= 96 && $pvalue <= 110){
+            return '110-130斤';
+        }elseif($pvalue >= 96 && $pvalue <= 110){
+            return '130-150斤';
+        }else{
+            return '150斤以上';
+        }
     }
     
 }
