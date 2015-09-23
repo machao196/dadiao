@@ -63,7 +63,7 @@ class ClothesController extends ApiController {
             $subSql = "select C.*,sum(JiFen) as score from clothes as C inner join clothesparameter as CP on(C.ClothesID = CP.ClothesID) where $whereStr group by C.ClothesID";
             
             $sql = "select * from ($subSql) as A order by score desc limit $Offset,$Rows";
-            echo $sql;exit;
+            //echo $sql;exit;
             $list = $clothesparameterModel->query($sql);
             $countSql = "select count(1) as count from ($subSql) as A";
             $count = $clothesparameterModel->query($countSql);
