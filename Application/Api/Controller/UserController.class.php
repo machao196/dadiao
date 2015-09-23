@@ -106,12 +106,14 @@ class UserController extends ApiController {
         if(!empty($hPData)){
             foreach($hPData as $hPItem){
                 if(!isset($hPItem['K'],$hPItem['V']) || !is_array($hPItem['V'])){
-                    echo 1;exit;
                     continue;
                 }
                 $hPName = $hPItem['K'];
     	        $haveSet = $HumanParams->where("HumanID='%d' and HPname='%s'",$this->getCurUserID(),$hPName)->delete();
                 foreach($hPItem['V'] as $hpValue){
+                    if($hPName == '身高'){
+                        $hpValue = $this->getHeight($hpValue);
+                    }elseif($hPName == '体重'){}
                     $data = array('HPName'=>$hPName,'HPValue'=>$hpValue,'HumanID'=>$this->getCurUserID());
                     
                     $HumanParams->data($data)->add();
@@ -120,6 +122,12 @@ class UserController extends ApiController {
         }
         $this->outPut('success','SUCCESS');
     }
+    public function getparams(){
+        $HumanParams  = M('humanparameters');
+        $params = $HumanParams->where("HumanID='%d'",$this->getCurUserID())->select();
+        $this->outPut('success','SUCCESS',$params);
+    }
+    
     public function uid(){
     	//header("content-type:text/html;charset=utf8");
     	//print_r($_SESSION);
