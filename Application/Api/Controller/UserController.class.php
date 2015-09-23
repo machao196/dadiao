@@ -91,6 +91,35 @@ class UserController extends ApiController {
     	}
     	$this->methodError();
     }
+    public function setdata(){
+    	if(!IS_POST){
+    		$this->methodError();
+    	}
+    	$hPData = trim($_POST['Data']);
+        if(empty($hPData)){
+            $this->outPut('err_params','参数名不能为空');
+        }
+         //print_r($hPData);exit;
+    	$hPData = json_decode($hPData,true);
+        
+    	$HumanParams  = M('humanparameters');
+        if(!empty($hPData)){
+            foreach($hPData as $hPItem){
+                if(!isset($hPItem['K'],$hPItem['V']) || !is_array($hPItem['V'])){
+                    echo 1;exit;
+                    continue;
+                }
+                $hPName = $hPItem['K'];
+    	        $haveSet = $HumanParams->where("HumanID='%d' and HPname='%s'",$this->getCurUserID(),$hPName)->delete();
+                foreach($hPItem['V'] as $hpValue){
+                    $data = array('HPName'=>$hPName,'HPValue'=>$hpValue,'HumanID'=>$this->getCurUserID());
+                    
+                    $HumanParams->data($data)->add();
+                }
+            }
+        }
+        $this->outPut('success','SUCCESS');
+    }
     public function uid(){
     	//header("content-type:text/html;charset=utf8");
     	//print_r($_SESSION);

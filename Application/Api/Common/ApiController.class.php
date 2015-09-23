@@ -13,6 +13,7 @@ class ApiController extends Controller {
 		'err_404'=>10002, //接口不存在
 		'err_method'=>10003,//接口调用方式不正确
 		'err_no_login'=>10004,//未登录
+		'err_params'=>10005,//参数错误
 
 	);
 	protected function isLogin(){
