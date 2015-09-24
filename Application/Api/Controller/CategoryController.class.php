@@ -8,7 +8,7 @@ class CategoryController extends ApiController {
 								'err_newpassword_nochange'=>20104,
 			);
 	protected function _initialize(){
-		$this->needLogin();
+		//$this->needLogin();
 	}
 	
     public function index(){
