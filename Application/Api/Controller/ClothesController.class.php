@@ -14,8 +14,8 @@ class ClothesController extends ApiController {
     public function lists(){
         $MinPrice = I("post.MinPrice");
         $MaxPrice = I("post.MaxPrice");
-        $Offset = I("post.Offset",1);
-        $Rows   = I("post,Rows",10);
+        $Offset = I("post.Offset",0);
+        $Rows   = I("post.Rows",10);
         $catID = I("post.CatID");
         $catList = array();
         if($catID){
@@ -30,22 +30,22 @@ class ClothesController extends ApiController {
             }
         }
         $where = array();
-    	$humanParamModel = M('humanparameters');
-        $humanParamList = $humanParamModel->where("HumanID = '%d'",$this->getCurUserID())->select();
+    	$humanParamModel = M('userparameters');
+        $humanParamList = $humanParamModel->where("UserID = '%d'",$this->getCurUserID())->select();
         
         foreach($humanParamList as $item){
-            $pName = $item['hpname'];
-            $pValue = $item['hpvalue'];
-            switch ($pName) {
+            $pName = $item['upname'];
+            $pValue = $item['upvalueid'];
+            /*switch ($pName) {
                 case '身高':
                     $pValue  = $this->getHeight($pValue);
                     break;
                 case '体重':
                     $pValue  = $this->getWeight($pValue);
                     break;
-            }
+            }*/
 
-            $where[] = " (CanShuMingCheng = '$pName' and CanShuNeiRong = '$pValue') ";
+            $where[] = " (CPName = '$pName' and CPValueID = '$pValue') ";
         }
     	if(!empty($where)){
             $whereStr = "( " . implode(" or ", $where) . " ) ";
@@ -58,11 +58,12 @@ class ClothesController extends ApiController {
             if($catList){
                 $whereStr .= " and C.CategoryID in ('".implode("','", $catList)."') ";   
             }
+            $whereStr .= " and C.Delete = 0 and C.OffShelf = 0 and C.PStatus = 1 ";
             //print_r($where);exit;
-            $clothesparameterModel = M("clothesparameter");
-            $subSql = "select C.*,sum(JiFen) as score from clothes as C inner join clothesparameter as CP on(C.ClothesID = CP.ClothesID) where $whereStr group by C.ClothesID";
+            $clothesparameterModel = M("commodityparameter");
+            $subSql = "select C.*,sum(Score) as score from commodity as C inner join commodityparameter as CP on(C.CommodityID = CP.CommodityID) where $whereStr group by C.CommodityID";
             
-            $sql = "select * from ($subSql) as A order by score desc limit $Offset,$Rows";
+            $sql = "select * from ($subSql) as A order by score desc,CreateTime desc limit $Offset,$Rows";
             //echo $sql;exit;
             $list = $clothesparameterModel->query($sql);
             $countSql = "select count(1) as count from ($subSql) as A";

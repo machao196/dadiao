@@ -102,29 +102,58 @@ class UserController extends ApiController {
          //print_r($hPData);exit;
     	$hPData = json_decode($hPData,true);
         
-    	$HumanParams  = M('humanparameters');
+    	$HumanParams  = M('userparameters');
         if(!empty($hPData)){
             foreach($hPData as $hPItem){
                 if(!isset($hPItem['K'],$hPItem['V']) || !is_array($hPItem['V'])){
                     continue;
                 }
                 $hPName = $hPItem['K'];
-    	        $haveSet = $HumanParams->where("HumanID='%d' and HPname='%s'",$this->getCurUserID(),$hPName)->delete();
+    	        $haveSet = $HumanParams->where("UserID='%d' and UPName='%s'",$this->getCurUserID(),$hPName)->delete();
                 foreach($hPItem['V'] as $hpValue){
                     if($hPName == '身高'){
                         $hpValue = $this->getHeight($hpValue);
-                    }elseif($hPName == '体重'){}
-                    $data = array('HPName'=>$hPName,'HPValue'=>$hpValue,'HumanID'=>$this->getCurUserID());
-                    
-                    $HumanParams->data($data)->add();
+                    }elseif($hPName == '体重'){
+                        $hpValue = $this->getWeight($hpValue);
+                    }
+                    $data = array('UPName'=>$hPName,'UPValueID'=>$hpValue,'UserID'=>$this->getCurUserID());
+                   // print_r($data);exit;
+                    $v = $HumanParams->data($data)->add();
+                    //print_r($v);exit;
                 }
             }
         }
         $this->outPut('success','SUCCESS');
     }
+    protected function getHeight($hpvalue){
+        if($pvalue < 160){
+            return 1;
+        }elseif($pvalue >= 160 && $pvalue <= 165){
+            return 2;
+        }elseif($pvalue >= 166 && $pvalue <= 169){
+            return 3;
+        }else{
+            return 4;
+        }
+    }
+    protected function getWeight($pvalue){
+        $pvalue = $pvalue * 2;
+        if($pvalue < 95){
+            return 5;
+        }elseif($pvalue >= 95 && $pvalue <= 110){
+            return 6;
+        }elseif($pvalue >= 111 && $pvalue <= 130){
+            return 7;
+        }elseif($pvalue >= 131 && $pvalue <= 110){
+            return 8;
+        }else{
+            return 9;
+        }
+
+    }
     public function getparams(){
-        $HumanParams  = M('humanparameters');
-        $params = $HumanParams->where("HumanID='%d'",$this->getCurUserID())->select();
+        $HumanParams  = M('userparameters');
+        $params = $HumanParams->where("UserID='%d'",$this->getCurUserID())->select();
         $this->outPut('success','SUCCESS',$params);
     }
     
