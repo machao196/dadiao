@@ -2,10 +2,8 @@
 namespace Api\Controller;
 use Api\Common\ApiController;
 class ClothesController extends ApiController {
-	protected $_errorCode = array('err_old_password'=>20101,
-								'err_repassword_not_same'=>20102,
-								'err_password_format'=>20103,
-								'err_newpassword_nochange'=>20104,
+	protected $_errorCode = array('err_userparams_not_full'=>20141,
+								
 			);
 	protected function _initialize(){
 		$this->needLogin();
@@ -77,6 +75,8 @@ class ClothesController extends ApiController {
                     'offset'=>$Offset,
                     'rows'=>$Rows);
             $this->outPut('success','SUCCESS',$reData);
+        }else{
+            $this->outPut('err_userparams_not_full','还没有设置基础参数',$reData);
         }
     }
     protected function getHeight($pvalue){
