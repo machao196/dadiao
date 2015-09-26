@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+     <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="css/home.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+        <title>搭调</title>
+	</head>
+    <body>
+	   <nav class="menu_tool abs bottomB" id="navi"></nav>
+       <div class="section1 section same">
+       	   <section class="seach_area">
+              <!--<h3>发现、找寻适合你的一起</h3>
+   	   	   	  <div class="seach_panel  seachs">
+     	  	 			<div>
+     	  	 				<input type="text" placeholder="搜索你想要的fashion" />
+     	  	 			</div>
+   	  	 			   <a href="#" onclick="return false;" class="go"></a>
+   	  	 	   </div>
+             <p>热门搜索：纹身贴,点亮生活,买买买,"看世界,要趁早",美美的裙子</p>-->
+       	   </section>
+       </div>
+       <div class="section2 section">
+       	  <section id="contain1">
+             <svg id="el2">
+			    <defs>
+				   <mask id="mask" maskContentUnits="userSpaceOnUse" maskUnits="userSpaceOnUse">
+					  <image xlink:href="img/mask.png" height="650px" width="1280px">
+				   </mask>
+				</defs>
+				<foreignObject style="mask:url(#mask);" height="650px" width="1280px">
+					 <div class="element2"></div>
+				</foreignObject>
+		     </svg>
+		     <svg id="el1">
+			    <defs>
+				   <mask id="mask" maskContentUnits="userSpaceOnUse" maskUnits="userSpaceOnUse">
+					  <image xlink:href="img/mask.png" height="650px" width="1280px">
+				   </mask>
+				</defs>
+				<foreignObject style="mask:url(#mask);" height="650px" width="1280px">
+					 <div class="element"></div>
+				</foreignObject>
+			 </svg>
+       	  </section>
+       	  <div class="section"></div>
+       	  <div id="transition1"></div>
+       	  <div class="section3" class="section"></div>
+       	  <div id="transition2"></div>
+       </div>
+    </body>
+	<script src="js/jquery.min.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/data.js"></script>
+	<script type="text/javascript">
+		loadAccount(1);
+        $(window).scroll(function(){
+        	 if($(this).scrollTop()>330){
+                $(".menu_tool .seach_panel").removeClass("noseach");
+                $(".seach_area .seach_panel").addClass("noseach");
+        	 }else{
+        	 	$(".menu_tool .seach_panel").addClass("noseach");
+                $(".seach_area .seach_panel").removeClass("noseach");
+        	 }
+        });
+	</script>
+</html>	

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+     <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="css/home.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link rel="stylesheet" type="text/css" href="css/basic.css">
+        <title>基本资料</title>
+	</head>
+    <body>
+       <div class="same singleWrapper">
+          <nav class="menu_tool abs bottomB" id="navi"></nav>
+		  <div class="sameWrapp basicWrapp">
+              <div class="menuTool">
+                 <div class="face">
+                    <img  src="img/head.jpg" />
+                 </div>
+                 <h4>liuxi05503</h4>
+                 <div class="menu">
+                     <a href="#" class="binfo select"><em></em>基本资料</a>
+                     <a href="bindAccount.html" class="baccount dashed"><em></em>绑定账号</a>
+                     <a href="changepwd.html" class="cpwd dashed"><em></em>修改密码</a>
+                     <a href="myfarivote.html" class="mfarvi lines"><em></em>我的收藏</a>
+                 </div>
+              </div>
+              <div class="basicForm">
+                  <h3>基本资料</h3>
+                  <div class="input_group">
+                      <input type="hidden" id="sex" value="0" />
+                      <div class="group lines">
+                          注册账号
+                          <div class="bform">
+                              <input type="text" class="inputs" id="regitcode" readonly />
+                          </div>
+                      </div>
+                      <div class="group lines">
+                          注册邮箱
+                          <div class="bform">
+                              <input type="text" class="inputs" id="regitemail" readonly />
+                          </div>
+                      </div>
+                      <div class="group lines">
+                          绑定手机
+                          <div class="bform">
+                              您还没有绑定手机<a href="#" class="bindPhone">去绑定</a>
+                          </div>
+                      </div>
+                      <div class="group radiogrop lines">
+                          性别
+                          <div class="bform clearfix" id="radio"></div>
+                      </div>
+                      <div class="group lines">
+                          出生日期
+                          <div class="bform selectwrap" id="select">
+                              <div id="sel1" class="select-content csrq">
+                                  <span></span>
+                                  <ul class="drop-pop" id="year"></ul>
+                              </div>
+                              <label class="floatL">年</label>
+                              <div id="sel2" class="select-content csrq">
+                                  <span></span>
+                                  <ul class="drop-pop" id="month"></ul>
+                              </div>
+                              <label class="floatL">月</label>
+                              <div id="sel3" class="select-content csrq">
+                                  <span></span>
+                                  <ul class="drop-pop" id="date"></ul>
+                              </div>
+                              <label class="floatL">日</label>
+                          </div>
+                      </div>
+                      <div class="group lines">
+                          所在地
+                          <div class="bform selectwrap">
+                              <div id="sel4" class="select-content szd">
+                                  <span>请选择...</span>
+                                  <ul class="drop-pop">
+                                      <li>北京</li>
+                                      <li>天津</li>
+                                      <li>上海</li>
+                                  </ul>
+                              </div>
+                              <div id="sel5" class="select-content szd">
+                                  <span>请选择..</span>
+                                  <ul class="drop-pop">
+                                      <li>北京</li>
+                                      <li>天津</li>
+                                      <li>上海</li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="group sexsm">
+                          个性说明
+                          <div class="bform">
+                              <textarea class="tarea"></textarea>
+                          </div>
+                      </div>
+                      <div class="group">
+                          <div class="bform"><h4><label>*</label>为了体验更加完美的个性化定制服务,<a href="#" class="bindPhone">建议完善您的数据</a></h4></div>
+                      </div>
+                      <div class="group">
+                          <div class="bform">
+                              <button class="save" type="button" id="saveinfo">保存</button>
+                          </div>
+                      </div>
+                      <div class="uploadWrap">
+                          <div class="imgPanel" id="img">
+                              <img src="" width="100%" height="100%" id="imgShow" />
+                          </div>
+                          <form enctype="multipart/form-data">
+                              <a href="#" class="upbtn">
+                                  更换头像<input type="file" id="fileimg" />
+                              </a>
+                          </form>
+                      </div>
+                 </div>
+              </div>
+
+		  </div>
+       </div>
+    </body>
+	<script src="js/jquery.min.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/uploadPreview.min.js"></script>
+	<script type="text/javascript">
+        loadAccount();
+        innerhtml.selectYear("#year");
+        innerhtml.setMonth("#month");
+        innerhtml.setDate("#date");
+        sendAjax("./api/user/info","",function(datas){
+            var sexname=["男","女"];
+            $("#regitcode").val(datas.data.account);
+            $("#regitemail").val(datas.data.email);
+            $("#sel1 span").html(datas.data.birthyear);
+            $("#sel2 span").html(datas.data.birthmonth);
+            $("#sel3 span").html(datas.data.birthday);
+            $("#sel4 span").html(datas.data.province);
+            $("#sel5 span").html(datas.data.city);
+            $(".bform area").html(datas.data.about);
+            $("#sex").val(datas.data.sex);
+            $("#imgShow").attr("src",datas.data.avata);
+            innerhtml.radio("#radio",sexname,datas.data.sex);
+            $(".radiowrap").clickRadio("#sex");
+        });
+        $("#saveinfo").click(function(){
+            var data={"Sex":$("#sex").val(),"BirthYear":$("#sel1 span").html(),"BirthMonth":$("#sel2 span").html(),"BirthDay":$("#sel2 span").html(),"City":$("#sel5 span").html(),
+                "Province":$("#sel4 span").html(),"About":$(".bform area").html()};
+            sendAjax("./api/user/set",data,function(datas){
+
+            });
+        });
+        $("#sel1").mySelect({cname:"#hid-sel1"});
+        $("#sel2").mySelect({cname:"#hid-sel2"});
+        $("#sel3").mySelect({cname:"#hid-sel3"});
+        $("#sel4").mySelect({cname:"#hid-sel4"});
+        $("#sel5").mySelect({cname:"#hid-sel5"});
+        new uploadPreview({ UpBtn: "fileimg", DivShow: "img", ImgShow: "imgShow" });
+	</script>
+</html

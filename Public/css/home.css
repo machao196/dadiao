@@ -1,0 +1,50 @@
+html{font-size:100%;}
+body{margin:0;padding:0;font-weight: 400;height: 100%;overflow-x: hidden;overflow-y: auto;width: 100%;}
+ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,hgroup,p,blockquote,figure,form,fieldset,input,legend,pre,abbr{margin:0;padding:0}
+ul li{list-style:none;}
+a{text-decoration:none;}
+h1,h2,h3,h4,h5,h6{font-weight:normal;}
+em{font-style:normal;}
+pre,code,address,caption,th,figcaption{font-size:1em;font-weight:normal;font-style:normal}
+fieldset,iframe,img{border:0}
+caption,th{text-align:left}
+table{border-collapse:collapse;border-spacing:0}
+article,aside,footer,header,nav,main,section,summary,details,hgroup,figure,figcaption{display:block}
+audio,canvas,video,progress{display:inline-block;vertical-align:baseline}
+button{font:inherit;vertical-align:middle}
+.floatR{float:right;}
+.floatL{float:left;}
+@media only screen and (min-device-width: 768px){
+  body {  min-width: 768px;  }
+}
+.clearfix::before, .clearfix::after{content: "";display: table;  }
+.clearfix::after{clear:both;}
+/*下拉框*/
+.select-content span{overflow:hidden;text-align:left;width:160px;height:30px;display:block;}
+.select-wrapper{*zoom: 1;font-weight: 400;color:#999;}
+.select-wrapper.posi{position:absolute;}
+.select-wrapper:after {clear: both;content: "";display: table;}
+.select-content{position: relative;width:120px;height:30px;border:1px solid #ececec;padding:0 0 0 5px;cursor: pointer;-webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;-ms-transition: all 0.3s ease-out;-o-transition: all 0.3s ease-out;transition: all 0.3s ease-out;}
+.select-content:after {content: "";width: 0;height: 0;position: absolute;top: 50%;right: 15px;margin-top:0px;border-width: 6px 6px 0 6px;border-style: solid;border-color: #898989 transparent;}
+.select-content .drop-pop{position:absolute;top:35px;right:0;left:0;z-index:55;background:#fff;max-height:0;overflow-y:scroll;border-radius:0 0 5px 5px;
+    -webkit-transition: all 0.3s ease-out;-moz-transition: all 0.3s ease-out;-ms-transition: all 0.3s ease-out;-o-transition: all 0.3s ease-out;transition: all 0.3s ease-out;}
+.select-content .drop-pop li {padding:5px 10px ;}
+.select-content .drop-pop li a {display: block;color: #333;padding: 10px 0;transition: all 0.3s ease-out;}
+.select-content .drop-pop li:hover a{color: #57a9d9;}
+.select-content.active .drop-pop{border:1px solid #ebebeb;max-height:400px;}
+/*单选框@复选框*/
+.check-wrapp{display:block;}
+.check-wrapp input{display:none;}
+.check-wrapp .check-lable{width:13px;height:13px;border:1px solid #68676a;background:#fff;border-radius:13px;margin:0 auto;display:block;}
+.check-wrapp .chs{width:14px;height:14px;border:1px solid #bebebe;border-radius:2px;display:block;}
+.isnone:checked + label:after{content:"";background:#acd598;width:9px;height:9px;border-radius:9px;text-align:center;display:block;margin:2px;}
+.ischs:checked + label:after{content:"√";background:#e8e8e8;text-align:center;height:14px;display:block;font-weight:bold;}
+.isnone.ischeck:checked + label:after{content:"√";background:none;margin:-1px 0 0 2px;text-align:center;display:block;font-size:12px;}
+/*分页*/
+.Pagination{text-align:center;margin:20px 0 30px 0;color:#686868;font-size:14px;}
+.Pagination .pagination span,.Pagination .pagination a{border:1px solid #d0d0d0;color:#686868;font-size:14px;padding:5px 15px;}
+.Pagination .pagination .current{background:#e3e3e3;}
+.Pagination .totalrecord{padding:0 15px;}
+.Pagination input{width:50px;height:20px;border:1px solid #dddddd;margin:0 5px;}
+.Pagination button{color:#fff;background:#f85300;padding:0 7px;cursor:pointer;border:none;margin:0 0 0 10px;}

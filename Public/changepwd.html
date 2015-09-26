@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+     <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="css/home.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link rel="stylesheet" type="text/css" href="css/basic.css">
+        <title>修改密码</title>
+	</head>
+    <body>
+       <div class="same singleWrapper">
+          <nav class="menu_tool abs bottomB" id="navi"></nav>
+		  <div class="sameWrapp basicWrapp">
+              <div class="menuTool">
+                  <div class="face">
+                      <img  src="img/head.jpg" />
+                   </div>
+                   <h4>liuxi05503</h4>
+                   <div class="menu">
+                      <a href="baseInfo.html" class="binfo dashed"><em></em>基本资料</a>
+                      <a href="bindAccount.html" class="baccount dashed"><em></em>绑定账号</a>
+                      <a href="#" class="cpwd select"><em></em>修改密码</a>
+                      <a href="myfarivote.html" class="mfarvi lines"><em></em>我的收藏</a>
+                   </div>
+              </div>
+              <div class="basicForm cpwd">
+                 <h3>修改密码</h3>
+                 <div class="input_group">
+                     <div class="group lines">
+                        <label>*</label>当前密码
+                       <div class="bform">
+                           <input type="text" class="inputs" id="pwd" />
+                       </div>
+                       <label class="info"></label>
+                     </div>
+                     <div class="group lines">
+                         <label>*</label>新密码
+                          <div class="bform">
+                              <input type="text" class="inputs" id="newpwd" />
+                          </div>
+                         <label class="info"></label>
+                      </div>
+                      <div class="group">
+                          <label>*</label>确认密码
+                          <div class="bform">
+                              <input type="text" class="inputs" id="rpwd" />
+                          </div>
+                          <label class="info"></label>
+                      </div>
+                      <div class="group lines">
+                          <div class="bform sub">
+                              <input type="button" class="subpwd"  value="提交" />
+                          </div>
+                          <span id="success" class="info"></span>
+                      </div>
+                  </div>
+              </div>
+		  </div>
+    </div>
+    </body>
+	<script src="js/jquery.min.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/data.js"></script>
+	<script type="text/javascript">
+        loadAccount();
+        $("#pwd").focus();
+        $(".subpwd").click(function(){
+            var data={"OldPassword":$("#pwd").val(),"NewPassword":$("#newpwd").val(),"RePassword":$("#rpwd").val()};
+            var infos=$(".input_group .info");
+            sendAjax("./api/user/repassword",data,function(data){
+                if(data.code==20101){
+                    infos.eq(0).html("旧密码错误");
+                    infos.eq(0).focus();
+                }else if(data.code==20103){
+                    infos.eq(1).html("全的密码应由6~16位字母/数字/符号组合而成.");
+                    infos.eq(1).focus();
+                }else if(data.code==20102){
+                    infos.eq(2).html("新密码和原始密码不相同.");
+                    infos.eq(2).focus();
+                }else{
+                    $("#success").html("修改成功")
+                    setTimeout(function(){
+                        $("#success").html("");
+                    },3000);
+                }
+            })
+        });
+	</script>
+</html>	

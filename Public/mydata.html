@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="css/home.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/basic.css">
+    <title>我的数据</title>
+</head>
+<body style="overflow:hidden;">
+<nav class="menu_tool abs bottomB" id="navi"></nav>
+<div class="same singleWrapper allbody" id="allbody" style="background:none;">
+    <input type="hidden" id="fs" /><input type="hidden" id="sclx" /><input type="hidden" id="kxg" /><input type="hidden" id="xgpd" />
+    <input type="hidden" id="all" value="" />
+    <div class="mydata editdata">
+        <div class="epanel">
+            <h3>贴上属于您的标签</h3>
+            <div class="data_txt">
+                <span>身高：<input type="text" id="sg" />cm</span>
+                <span>体重：<input type="text" id="height" />kg</span>
+            </div>
+            <div class="skin">
+                <div class="floatL title">肤色：</div>
+                <label class="skin_sel skin1" for="sr1">
+                    <em></em>
+                    <p class="name">细嫩白皙</p>
+                    <span class="check-wrapp">
+                       <input type="radio" id="sr1" value="15" class="isnone" name="skin">
+                       <label  class="check-lable"></label>
+                   </span>
+                </label>
+                <label class="skin_sel skin2" for="sr2">
+                    <em></em>
+                    <p class="name">前象牙色</p>
+                    <span class="check-wrapp">
+                       <input type="radio" id="sr2" value="16" class="isnone" name="skin">
+                       <label class="check-lable"></label>
+                     </span>
+                </label>
+                <label class="skin_sel skin3" for="sr3">
+                    <em></em>
+                    <p class="name">小麦黄</p>
+                     <span class="check-wrapp">
+                         <input type="radio" id="sr3" value="17" class="isnone" name="skin">
+                         <label  class="check-lable"></label>
+                      </span>
+                </label>
+                <label class="skin_sel skin4" for="sr4" >
+                    <em></em>
+                    <p class="name">暗黄色</p>
+                     <span class="check-wrapp">
+                         <input type="radio" id="sr4" value="18" class="isnone" name="skin">
+                         <label class="check-lable"></label>
+                      </span>
+                </label>
+                <label class="skin_sel skin5" for="sr5">
+                    <em></em>
+                    <p class="name">冷白色</p>
+                     <span class="check-wrapp">
+                         <input type="radio" id="sr5" value="19" class="isnone" name="skin">
+                         <label class="check-lable"></label>
+                      </span>
+                </label>
+                <label class="skin_sel skin6"  for="sr6">
+                    <em></em>
+                    <p class="name">白里透红</p>
+                     <span class="check-wrapp">
+                         <input type="radio" id="sr6" value="20" class="isnone" name="skin">
+                         <label class="check-lable"></label>
+                      </span>
+                </label>
+                <label class="skin_sel skin7"  for="sr7">
+                    <em></em>
+                    <p class="name">青色</p>
+                 <span class="check-wrapp">
+                     <input type="radio" id="sr7" value="21" class="isnone" name="skin">
+                     <label class="check-lable"></label>
+                  </span>
+                </label>
+                <label class="skin_sel skin6" for="sr8">
+                    <em></em>
+                    <p class="name">黝黑</p>
+                 <span class="check-wrapp">
+                     <input type="radio" id="sr8" value="22" class="isnone" name="skin">
+                     <label class="check-lable"></label>
+                  </span>
+                </label>
+            </div>
+            <div class="bodytype">
+                <div class="floatL title">身材类型：</div>
+                <label class="btype btype1" for="br1">
+                    <em></em>
+                    <p class="name">肩膀臀部比例适中,明显细腰</p>
+                     <span class="check-wrapp">
+                         <input type="radio" id="br1" value="10" class="isnone" name="btypes">
+                         <label class="check-lable"></label>
+                     </span>
+                </label>
+                <label class="btype btype2" for="br2">
+                    <em></em>
+                    <p class="name">下半身比较胖</p>
+                     <span class="check-wrapp">
+                         <input type="radio" id="br2" value="11" class="isnone" name="btypes">
+                         <label class="check-lable"></label>
+                     </span>
+                </label>
+                <label class="btype btype3" for="br3">
+                    <em></em>
+                    <p class="name">上半身比较胖</p>
+                    <span class="check-wrapp">
+                         <input type="radio" id="br3" value="12" class="isnone" name="btypes">
+                         <label class="check-lable"></label>
+                     </span>
+                </label>
+                <label class="btype btype4" for="br4">
+                    <em></em>
+                    <p class="name">三围比例接近,身材无明显曲线</p>
+                <span class="check-wrapp">
+                  <input type="radio" id="br4" value="13" class="isnone" name="btypes">
+                  <label class="check-lable"></label>
+               </span>
+                </label>
+                <label class="btype btype5" for="br5">
+                    <em></em>
+                    <p class="name">腰腹臀明显突出,身材圆润</p>
+                <span class="check-wrapp">
+                     <input type="radio" id="br5" value="14" class="isnone" name="btypes">
+                     <label class="check-lable"></label>
+                </span>
+                </label>
+            </div>
+            <div class="outline">
+                <div class="floatL title">廓形感：</div>
+                <label class="oline oline1" for="or1">
+                    <em></em>
+                    <p class="name">直线型</p>
+                <span class="check-wrapp">
+                   <input type="radio" id="or1" value="31" class="isnone" name="outlines">
+                   <label class="check-lable"></label>
+                </span>
+                </label>
+                <label class="oline oline2" for="or2">
+                    <em></em>
+                    <p class="name">曲线型</p>
+                <span class="check-wrapp">
+                  <input type="radio" id="or2" value="32" class="isnone" name="outlines">
+                  <label class="check-lable"></label>
+                </span>
+                </label>
+            </div>
+            <div class="sextype">
+                <div class="title">性格类型判定：</div>
+                <div class="sexlist">
+                    <label class="sex" for="sro1">
+                        <div class="sex_xq"><img src="img/sextype1.jpg" /></div>
+                        <span class="check-wrapp sex_xq sexradio">
+                           <input type="checkbox"  id="sro1" value="23" class="isnone ischeck">
+                           <label class="check-lable"></label>
+                         </span>
+                        <span class="sex_xq sexms">脸部线条清晰，身材高大，大骨骼，五官立体，夸张大气，存在感强</span>
+                    </label>
+                    <label class="sex" for="sro2">
+                        <div class="sex_xq"><img src="img/sextype2.jpg" /></div>
+                        <span class="check-wrapp sex_xq sexradio">
+                           <input type="checkbox" id="sro2" value="24" class="isnone ischeck">
+                           <label class="check-lable"></label>
+                        </span>
+                        <span class="sex_xq sexms">脸部线条直线感强，身材无明显曲线，呈直线型，五官亲近感强，性格开朗随和，潇洒</span>
+                    </label>
+                    <label class="sex" for="sro3">
+                        <div class="sex_xq"><img src="img/sextype3.jpg" /></div>
+                        <span class="check-wrapp sex_xq sexradio">
+                           <input type="checkbox" id="sro3" value="25" class="isnone ischeck">
+                           <label class="check-lable"></label>
+                        </span>
+                        <span class="sex_xq sexms">脸部线条适中，身材适中，五官传统端庄，个性严谨传统</span>
+                    </label>
+                    <label class="sex" for="sro4">
+                        <div class="sex_xq"><img src="img/sextype4.jpg" /></div>
+                        <span class="check-wrapp sex_xq sexradio">
+                           <input type="checkbox" id="sro4" value="26" class="isnone ischeck">
+                           <label class="check-lable"></label>
+                        </span>
+                        <span class="sex_xq sexms">脸部线条柔美圆润，身材圆润，五官精致，温柔内敛</span>
+                    </label>
+                    <label class="sex" for="sro5">
+                        <div class="sex_xq"><img src="img/sextype5.jpg" /></div>
+                        <span class="check-wrapp sex_xq sexradio">
+                           <input type="checkbox" id="sro5" value="27" class="isnone ischeck">
+                           <label class="check-lable"></label>
+                        </span>
+                        <span class="sex_xq sexms">脸部线条圆润，五官曲线感强，身材丰满圆润，有女人味，妩媚性感</span>
+                    </label>
+                    <label class="sex" for="sro6">
+                        <div class="sex_xq"><img src="img/sextype6.jpg" /></div>
+                        <span class="check-wrapp sex_xq sexradio">
+                           <input type="checkbox" id="sro6" value="28" class="isnone ischeck">
+                           <label class="check-lable"></label>
+                        </span>
+                        <span class="sex_xq sexms">脸部线条清晰，五官精致，身材骨感，性格外向</span>
+                    </label>
+                    <label class="sex" for="sro7">
+                        <div class="sex_xq"><img src="img/sextype7.jpg" /></div>
+                        <span class="check-wrapp sex_xq sexradio">
+                           <input type="checkbox" id="sro7" value="29" class="isnone ischeck">
+                           <label class="check-lable"></label>
+                        </span>
+                        <span class="sex_xq sexms">脸部线条清晰，五官有力量感，身材呈直线型，帅气干练，性格直爽</span>
+                    </label>
+                    <label class="sex" for="sro8">
+                        <div class="sex_xq"><img src="img/sextype8.jpg" /></div>
+                        <span class="check-wrapp sex_xq sexradio">
+                           <input type="checkbox" id="sro8" value="30" class="isnone ischeck">
+                           <label class="check-lable"></label>
+                        </span>
+                        <span class="sex_xq sexms">脸部线条圆润，五官稚嫩天真，身材骨骼偏小，不高大，性格开朗活泼</span>
+                    </label>
+                </div>
+            </div>
+            <div class="goTune">
+                <a href="#" id="goTake" class="btn">现在就去搭配一身</a>
+                <a href="#" class="prefect" id="prefect">完善数据</a>有惊喜哦!
+            </div>
+        </div>
+    </div>
+    <div class="cards alldata">
+        <div class="data1 datapanel">
+            <button id="prev1" class="prevbtn modelbtn">∧</button>
+            <img class="model"  src="img/model.png" />
+            <button id="prev2" class="autoBg">生成搭配报告</button>
+            <div class="data_01 data" da="颈部数据" data="颈围@比例均匀,颈部过粗|颈长@颈部过短,比例均匀,颈部过长" defal="0@1" hibe="42,41|39,42,40">
+                <img class="img1 floatL" src="img/dataicon.png"/>
+                <img class="img2 floatL now" src="img/dataright.png"/>
+                <span class="txt">
+                   颈部数据<br/>
+                   <label>颈长、颈围</label>
+                </span>
+            </div>
+            <div class="data_02 data" da="身体数据" data="胸部@平胸,比例均匀,胸部过大,胸部丰满|腰部@腰部过粗,比例均匀,腰部过长|腹部@比例均匀,有赘肉|臀部@臀部肩平,臀部下垂,比例均匀,臀部过大,跨宽" defal="1@1@0@2" hibe="52,42,50,51|53,42,54|57,59,42,58,56|">
+                <img class="img1 floatL" src="img/dataicon.png"/>
+                <img class="img2 floatL now" src="img/dataright.png"/>
+                <span class="txt">
+                   身体数据<br/>
+                   <label>胸部、腹部、腰部、臀部</label>
+                </span>
+            </div>
+            <div class="data_03 data" da="脚部数据" data="脚踝@比例均匀,粗脚踝" defal="0" hibe="42,66">
+                <img class="img1 floatL" src="img/dataicon.png"/>
+                <img class="img2 floatL now" src="img/dataright.png"/>
+                <span class="txt">
+                   脚部数据<br/>
+                   <label>脚踝</label>
+                </span>
+            </div>
+            <div class="data_04 data" da="脸部数据">
+                <span class="txt rtxt">
+                   脸部数据<br/>
+                   <label>脸型</label>
+                </span>
+                <img class="img1 floatL" src="img/dataicon.png"/>
+                <img class="img2 floatL now" src="img/dataright.png"/>
+            </div>
+            <div class="data_05 data" da="手臂、肩膀数据" data="臂长@手臂过短,比例均匀,手臂长|臂围@比例均匀,手臂过粗" defal="1@0" hibe="48,42,49|42,47">
+                <span class="txt rtxt">
+                   手臂、肩膀数据<br/>
+                   <label>手臂长短、长臂围、下臂围</label>
+                </span>
+                <img class="img1 floatL" src="img/dataicon.png"/>
+                <img class="img2 floatL now" src="img/dataright.png"/>
+            </div>
+            <div class="data_06 data" da="腿部数据" data="腿长@腿短,比例均匀|腿围@大腿粗,小腿粗,比例均匀,整体粗|特殊腿型@X型腿,O型腿" defal="1@2@0" hibe="63,42|60,61,42,62|65,64">
+                <span class="txt rtxt">
+                   腿部数据<br/>
+                   <label>腿长、腿围、特殊腿型</label>
+                </span>
+                <img class="img1 floatL" src="img/dataicon.png"/>
+                <img class="img2 floatL now" src="img/dataright.png"/>
+            </div>
+        </div>
+    </div>
+    <div class="cards alldatas">
+       <div class="mask"></div>
+       <div class="data2">
+            <div class="result">
+                <h4><span>搭配报告</span></h4>
+                <div class="reports">
+                   <div class="vertical"></div>
+                   <div class="report">
+                       <span class="img"><img src="img/sextype1.jpg" /></span>
+                       <span class="txt rtxt">
+                           <h3>比例</h3>
+                           <p>穿着时,注意腰线的位置,多选高腰线款型,可拉长比例</p>
+                       </span>
+                   </div>
+                   <div class="report">
+                       <span class="img"><img src="img/sextype1.jpg" /></span>
+                       <span class="txt ltxt">
+                           <h3>比例</h3>
+                           <p>穿着时,注意腰线的位置,多选高腰线款型,可拉长比例</p>
+                       </span>
+                   </div>
+               </div>
+               <div class="product_single singleReport">
+                    <div class="queryStore">
+                        <h3>推荐单品</h3>
+                        <div class="datalist">
+                            <div class="dataitem clearfix">
+                                <div class="item">
+                                    <img src="img/list.png">
+                                       <span class="mask">
+                                           <div class="heart">
+                                               <img src="img/heart.png">
+                                               <label>6952</label>
+                                           </div>
+                                           <a href="#" class="itemname">韩式复古高腰牛仔阔腿短裤</a>
+                                           <div class="ft">
+                                               <h4>￥69.00</h4>
+                                               <button>查看</button>
+                                           </div>
+                                      </span>
+                                </div>
+                                <div class="item">
+                                    <img src="img/list.png">
+                                </div>
+                                <div class="item">
+                                    <img src="img/list.png">
+                                </div>
+                                <div class="item">
+                                    <img src="img/list.png">
+                                </div>
+                                <div class="item">
+                                    <img src="img/list.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+       </div>
+    </div>
+</div>
+<div class="popmask">
+    <input type="hidden" value="0" id="hidface" />
+    <div class="popdata mydata" id="sliders">
+    </div>
+</div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/global.js"></script>
+<script src="js/data.js"></script>
+<script src="js/jquery.nstSlider.min.js"></script>
+<script type="text/javascript">
+    loadAccount(4);
+    $(".btype").clickRadio("#sclx");
+    $(".skin_sel").clickRadio("#fs");
+    $(".oline").clickRadio("#kxg");
+    $(".sex").clickCheck("#xgpd");
+    /*完善数据*/
+    $(".prefect").click(function(){
+        if(dataValidate()) {
+            var o = document.getElementById("allbody");
+            o.style.webkitTransform = o.style.transform = "translate3d(0px,-100%,0px)";
+        }
+    });
+    $(".datapanel #prev1").click(function(){
+        var o = document.getElementById("allbody");
+        o.style.webkitTransform = o.style.transform = "translate3d(0px,0%,0px)";
+    });
+    /*生成报告*/
+    $(".datapanel #prev2").click(function(){
+        //perfectVali();
+
+        alert();
+        //if(dataValidate()){
+            //先发送数据，然后得到数据
+
+            var o=document.getElementById("allbody");
+            o.style.webkitTransform=o.style.transform="translate3d(0px,-200%,0px)";
+        //}
+
+    });
+    $(".alldata .data").click(function(){
+        var t=$(this),title=t.attr("da"), data=t.attr("data")==undefined?"":t.attr("data")
+                ,defal=t.attr("defal")==undefined?"":t.attr("defal"),hibe= t.attr("hibe")==undefined?"": t.attr("hibe");
+        innerhtml.setSlide(title,"#sliders",data,defal,t,hibe);
+        $(".popmask").css({"opacity":"1","display":"block"});
+    });
+    //query
+    sendAjax("./api/user/getparams","",function(json){
+        if(json.code==10000){
+           /* for(var i=0;i<json.data.length;i++){
+
+            }*/
+            //console.log(json.data[0].hpname+"   "+json.data[0].hpvalue);
+        }
+    });
+    $("#goTake").bind('click',saveData);
+    function saveData(){
+       if(dataValidate()){
+           var data = [{"K": "身高", "V": [$("#sg").val()]}, {"K": "体重", "V": [$("#height").val()]}, {"K": "肤色", "V": [$("#fs").val()]}, {"K": "身材类型","V": [$("#sclx").val()]
+           },{"K": "廓形感", "V": [$("#kxg").val()]}, {"K": "性格类型", "V": [$("#xgpd").val()]}];
+           /*sendAjax("./api/user/setdata",data,function(data){
+               console.log(data);
+           });*/
+       }
+    }
+    function dataValidate(){
+        var sg = $("#sg").val(),hei=$("#height").val(),fs=$("#fs").val(),sclx=$("#sclx").val(),
+                kxg=$("#kxg").val(),xgpd=$("#xgpd").val();
+        if(sg==""){
+            alert("请填入您的身高!");
+            $("#sg").focus();
+            return false;
+        }else if(isNaN(sg)){
+            alert("请填入正确的身高!");
+            $("#sg").focus();
+            return false;
+        }else if(isNaN(hei)){
+            alert("请填入正确的体重!");
+            $("#height").focus();
+            return false;
+        }else if(hei==""){
+            alert("请填入您的体重!");
+            $("#height").focus();
+            return false;
+        }else if(fs==""){
+            alert("请选择您的肤色!");
+            return false;
+        }else if(sclx==""){
+            alert("请选择您的身材类型!");
+            return false;
+        }else if(kxg==""){
+            alert("请选择您的廓形感!");
+            return false;
+        }else if(xgpd==""){
+            alert("请选择您的性格类型!");
+            return false;
+        }else{
+            return true;
+        }
+    }
+    function perfectVali(){
+        var hidface=$("#hidface").val();
+        var data=[];
+        data.push();
+        var jb1=$("#hib-data0").val();
+        var jb2=$("#hib-data1").val();
+        alert(jb1+"  "+jb2);
+        console.log(hidface);
+    }
+</script>
+</html>

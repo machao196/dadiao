@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+     <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="css/home.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link rel="stylesheet" type="text/css" href="css/basic.css">
+        <title>我的收藏-单品</title>
+	</head>
+    <body>
+       <div class="same singleWrapper">
+          <nav class="menu_tool abs bottomB" id="navi"></nav>
+          <div class="sameWrapp basicWrapp">
+              <div class="menuTool">
+                  <div class="face">
+                      <img  src="img/head.jpg" />
+                  </div>
+                  <h4>liuxi05503</h4>
+                  <div class="menu">
+                      <a href="baseInfo.html" class="binfo dashed"><em></em>基本资料</a>
+                      <a href="bindAccount.html" class="baccount dashed"><em></em>绑定账号</a>
+                      <a href="changepwd.html" class="cpwd dashed"><em></em>修改密码</a>
+                      <a href="#" class="mfarvi select"><em></em>我的收藏</a>
+                  </div>
+              </div>
+              <div class="farivate">
+                  <div class="f_top">
+                      <h3>我的收藏</h3>
+                      <div class="tab">
+                          <a class="single selcted" href="#">单品</a>
+                          <a href="tune.html">搭配</a>
+                      </div>
+                  </div>
+                  <div class="tab_price">
+                     <p>
+                         <a href="#" class="all">全部</a>
+                         <a href="#">300以内</a><a href="#">300-500元</a><a href="#">500-1000元</a><a href="#">1000-5000元</a><a href="#">5000元以上</a>
+                     </p>
+                     <p>
+                          <a href="#" class="all">全部</a>
+                          <a href="#">上衣</a><a href="#">裙子</a><a href="#">半身裙</a><a href="#">外衣</a><a href="#">西服</a>
+                     </p>
+                      <button>已下架</button>
+                  </div>
+                  <div id="waterflow" class="queryStore">
+                      <div class="datalist">
+                          <div class="dataitem clearfix"></div>
+                      </div>
+                  </div>
+                  <div id="Pagination" class="Pagination"></div>
+             </div>
+          </div>
+       </div>
+    </body>
+	<script src="js/jquery.min.js"></script>
+    <script src="js/pagination.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/tool.js"></script>
+	<script type="text/javascript">
+        loadAccount();
+        var data={"data":[{"src":"1.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},
+            {"src":"2.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},{"src":"3.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},
+            {"src":"4.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},
+            {"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},{"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"}
+            ,{"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},{"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"}
+            ,{"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},{"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},
+            {"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},{"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},
+            {"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},{"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},
+            {"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},{"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},
+            {"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},{"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},
+            {"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},{"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},{"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},
+            {"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},{"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},{"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"}
+            ,{"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},{"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},{"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},
+            {"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},{"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"},{"src":"5.jpg","price":230,"farnum":6349,"txt":"韩式复古高腰牛仔阔腿短裤"}
+
+        ]};
+
+       $("#waterflow").waterFlow(data);
+	</script>
+</html>	

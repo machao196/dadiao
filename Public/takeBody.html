@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+     <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="css/home.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+        <title>搭全身</title>
+	</head>
+  <body style="overflow-y:hidden;">
+       <nav class="menu_tool abs bottomB" id="navi"></nav>
+       <div class="same allbody" id="allcard">  
+           <nav class="menu_tool abs bottomB">
+              <div class="menus">
+                 <ul class="nav_list">
+                  <li class="logo navs">
+                    <img src="img/logo.png">
+                  </li>
+				  <li class="tab">
+					  <a href="index.html">首页</a>
+					  <a href="takeSingle.html">搭单身</a>
+					  <a href="#">搭全身</a>
+					  <a href="mydata.html">我的数据</a>
+				  </li>
+                  <li class="nav_right">
+                    <a href="#" onclick="return false;" class="dialog"></a>
+					<a href="#" onclick="return false;" class="regit_btn navBtn">注册</a>
+					<a href="#" onclick="return false;" id="loginbtn" class="login_btn navBtn">登录</a>
+                  </li>
+                 </ul>
+              </div>
+           </nav>
+           <div class="mainMenu cards">
+			   <input type="hidden" id="style" value="0" />
+			   <input type="hidden" id="pace" value="0" />
+              <div class="menus">
+			      <h3>请选择您更加喜爱的风格服装?</h3>
+			      <div class="row1">
+				     <label class="menuItem item1" for="chee1">
+					    <div class="item">
+						   <div class="img">
+						       <div class="item_content">
+						         <h2>欧美</h2>
+							     <span class="check-wrapp">
+                                     <input type="checkbox" id="chee1" value="67" class="isnone ischeck" >
+                                     <label class="check-lable"></label>
+                                  </span>
+						      </div>
+						   </div>
+						</div>
+					 </label>
+					 <label class="menuItem item2" for="chee2">
+					    <div class="item">
+						   <div class="img">
+						       <div class="item_content">
+						         <h2>清新</h2>
+							     <span class="check-wrapp">
+                                     <input type="checkbox" id="chee2" value="81" class="isnone ischeck" >
+                                     <label class="check-lable"></label>
+                                  </span>  
+						      </div>
+						   </div>
+						</div>
+					 </label>
+					 <label class="menuItem item3" for="chee3">
+					    <div class="item">
+						   <div class="img">
+						       <div class="item_content">
+						         <h2>轻熟</h2>
+							     <span class="check-wrapp">
+                                     <input type="checkbox" id="chee3" value="76" class="isnone ischeck" >
+                                     <label class="check-lable"></label>
+                                  </span>  
+						      </div>
+						   </div>
+						</div>
+					 </label>
+					 <label class="menuItem item4" for="chee4">
+					    <div class="item">
+						   <div class="img">
+						       <div class="item_content">
+						         <h2>民族风</h2>
+							      <span class="check-wrapp">
+                                     <input type="checkbox" id="chee4" value="70" class="isnone ischeck" >
+                                     <label class="check-lable"></label>
+                                  </span>  
+						      </div>
+						   </div>
+						</div>
+					 </label>
+				  </div>
+				 <div class="row2">
+				    <label class="menuItem item5" for="chee5">
+					   <div class="item">
+						   <div class="img">
+							  <div class="item_content">
+								 <h2>优雅</h2>
+								 <span class="check-wrapp">
+									 <input type="checkbox" id="chee5" value="73" class="isnone ischeck" >
+									 <label class="check-lable"></label>
+								  </span>  
+							  </div>
+						   </div>
+					  </div>
+				   </label>
+                   <label class="menuItem item6" for="chee6">
+					   <div class="item">
+						   <div class="img">
+							  <div class="item_content">
+								 <h2>淑女</h2>
+								 <span class="check-wrapp">
+									 <input type="checkbox" id="chee6" value="75" class="isnone ischeck" >
+									 <label class="check-lable"></label>
+								  </span>  
+							  </div>
+						   </div>
+					  </div>
+				   </label>
+                   <label class="menuItem item7" for="chee7">
+					   <div class="item">
+						   <div class="img">
+							  <div class="item_content">
+								 <h2>简约</h2>
+								 <span class="check-wrapp">
+									 <input type="checkbox" id="chee7" value="89" class="isnone ischeck">
+									 <label class="check-lable"></label>
+								  </span>  
+							  </div>
+						   </div>
+					  </div>
+				   </label>
+                   <label class="menuItem item8" for="chee8">
+					   <div class="item">
+						   <div class="img">
+							  <div class="item_content">
+								 <h2>复古</h2>
+								 <span class="check-wrapp">
+									 <input type="checkbox" id="chee8" value="93" class="isnone ischeck">
+									 <label class="check-lable"></label>
+								  </span>  
+							  </div>
+						   </div>
+					  </div>
+				   </label>
+                   <label class="menuItem item9"  for="chee9">
+					   <div class="item">
+						   <div class="img">
+							  <div class="item_content">
+								 <h2>韩系</h2>
+								 <span class="check-wrapp">
+									 <input type="checkbox" id="chee9" value="68" class="isnone ischeck">
+									 <label class="check-lable"></label>
+								  </span>  
+							  </div>
+						   </div>
+					  </div>
+				   </label>
+                   <label class="menuItem item10"  for="chee10" style="margin:0;">
+					   <div class="item">
+						   <div class="img">
+							  <div class="item_content">
+								 <h2>OL</h2>
+								 <span class="check-wrapp">
+									 <input type="checkbox" id="chee10" value="85" class="isnone ischeck">
+									 <label class="check-lable"></label>
+								  </span>  
+							  </div>
+						   </div>
+					  </div>
+				   </label>
+				</div>
+				<div class="row3">
+				   <div class="menuItem item11">
+					   <div class="item">
+						   <div class="img">
+							  <div class="item_content">
+								 <h2>运动</h2>
+								 <span class="check-wrapp">
+									 <input type="checkbox" id="chee11" value="87" class="isnone ischeck">
+									 <label for="chee11" class="check-lable"></label>
+								  </span>  
+							  </div>
+						   </div>
+					  </div>
+				   </div>	
+				   <div class="menuItem item12">
+					   <div class="item">
+						   <div class="img">
+							  <div class="item_content">
+								 <h2>文艺</h2>
+								 <span class="check-wrapp">
+									 <input type="checkbox" id="chee12" value="80" class="isnone ischeck">
+									 <label for="chee12" class="check-lable"></label>
+								  </span>  
+							  </div>
+						   </div>
+					  </div>
+				   </div>	
+				   <div class="menuItem item13">
+					   <div class="item">
+						   <div class="img">
+							  <div class="item_content">
+								 <h2>奢华</h2>
+								 <span class="check-wrapp">
+									 <input type="checkbox" id="chee13" value="84" class="isnone ischeck">
+									 <label for="chee13" class="check-lable"></label>
+								  </span>  
+							  </div>
+						   </div>
+					  </div>
+				   </div>	
+				   <div class="menuItem item14">
+					   <div class="item">
+						   <div class="img">
+							  <div class="item_content">
+								 <h2>中性</h2>
+								 <span class="check-wrapp">
+									 <input type="checkbox" id="chee14" value="86" class="isnone ischeck">
+									 <label for="chee14" class="check-lable"></label>
+								  </span>  
+							  </div>
+						   </div>
+					  </div>
+				   </div>	
+				   <div class="menuItem item15" style="margin:0;">
+					   <div class="item">
+						   <div class="img">
+							  <div class="item_content">
+								 <h2>古典</h2>
+								 <span class="check-wrapp">
+									 <input type="checkbox" id="chee15" value="90" class="isnone ischeck">
+									 <label for="chee15" class="check-lable"></label>
+								  </span>  
+							  </div>
+						   </div>
+					  </div>
+				   </div>
+				</div>
+            </div>
+           <div class="nextbtn pos" id="next1">
+               <div><span>∨</span></div>
+           </div>
+           <div class="allmask"></div>
+         </div>  
+         <div class="card1 cards"> 
+            <div class="innerCard">
+              <button class="prevbtn" id="prev1">∧</button>
+              <h3 class="title">穿着您喜爱的类型衣服到哪里去？</h3>
+              <h4 class="title">典礼酒会</h4>
+              <p>女性在正式场合通常讲究穿长裙，但现在短裙礼服也逐渐频繁在正式场合亮相，穿着短裙特别值得注意的是，短裙应该以齐膝为宜。</p>
+              <p>日间活动通常以穿着日礼服为准，而日落后的活动则适合穿着袒胸露背风格的晚礼服。比较得体的连衣裙完全可以当做礼服来穿，但是穿的时候要搭配长筒丝袜和皮鞋，切忌搭配便鞋或“空前绝后”的凉鞋，且袜子口不能露在裙子外面。</p>
+              <p>女士西装裙适用于国内国际任何正式场合，而女性旗袍属于民族礼服系列，能够恰当地表现女性特有的美丽，适当情况下也是允许穿着的。但在商务谈判中，穿着特别强调民族特色的旗袍就不如穿着突出职业特性的西装套裙得体了。 </p>
+            </div>
+            <div class="places">
+               <div class="clearfix">
+                 <div class="plac p1">
+                    <span>商务</span>
+                 </div>
+                 <div class="plac p2">
+                    <span>休闲</span>
+                 </div>
+                 <div class="plac p3">
+                    <span>聚会</span>
+                 </div>
+                 <div class="plac p4">
+                    <span>日常</span>
+                 </div>
+                 <div class="plac p5">
+                    <span>上学</span>
+                 </div>
+				 <div class="plac p6">
+                    <span>上班</span>
+                 </div>
+              </div>  
+              <div class="radios clearfix">
+                 <div class="sels">
+                    <input type="radio" value="99" id="r1" class="radio">
+                    <label for="r1" class="ra_wrap"></label>
+                 </div>
+                 <div class="sels">
+                    <input type="radio" id="r2" value="79" class="radio">
+                    <label for="r2" class="ra_wrap"></label>
+                 </div>
+                  <div class="sels">
+                    <input type="radio" id="r3" value="95" class="radio">
+                    <label for="r3" class="ra_wrap"></label>
+                 </div>
+                 <div class="sels">
+                    <input type="radio" id="r4" value="97" class="radio">
+                    <label for="r4" class="ra_wrap"></label>
+                 </div>
+                 <div class="sels">
+                    <input type="radio" id="r5" value="98" class="radio">
+                    <label for="r5" class="ra_wrap"></label>
+                 </div>
+				 <div class="sels">
+					  <input type="radio" id="r6" value="96" class="radio">
+					  <label for="r6" class="ra_wrap"></label>
+				 </div>
+              </div> 
+              <div class="nextbtn" id="next2">
+                 <div><span>∨</span></div>
+              </div>
+            </div>
+         </div>
+         <div class="card2 cards"> 
+            <div class="innerCard">
+               <button class="prevbtn" id="prev2">∧</button>
+               <div class="planlist">
+               	   <div class="p_top">
+               	   	  <span>全部价格</span>
+               	   	  <a href="#">300元以内</a>
+               	   	  <a href="#">300-500元</a>
+               	   	  <a href="#">500-1000元</a>
+               	   	  <a href="#">1000-5000元</a>
+               	   	  <a href="#">5000元以上</a>
+               	   </div>
+               	   <div class="p_l clearfix" id="p_l1">
+               	   	 <div class="plan psame">
+               	   	 	<div class="t_left">
+               	   	 	   <img src="img/plan_icon.png">
+               	   	 	   <span>方案一</span>
+               	   	 	</div>
+               	   	 	<h4>￥422.2</h4>
+               	   	 	<button class="addFavorate" type="button">添加收藏</button>
+               	   	 	<button class="hate" type="button">我不喜欢</button>
+               	   	 </div>
+               	   	 <div class="lrbtn psame" id="p_left">＜</div>
+               	   	 <div class="center psame">
+               	   	 	<ul class="lookImg clearfix" id="lookimg">
+               	   	 		<li>
+               	   	 			<img src="img/pimg1.jpg">
+               	   	 			<span class="mask">
+		                           <div class="heart">
+		                              <img src="img/heart.png">
+		                              <label>6952</label>
+		                           </div>
+		                           <a href="#" class="itemname">11111111111</a>
+		                           <div class="ft">
+		                              <h4>￥69.00</h4>
+		                              <button>查看</button>
+		                           </div>
+		                        </span>
+               	   	 		</li>
+               	   	 		<li>
+               	   	 			<img src="img/pimg2.jpg">
+               	   	 			<span class="mask">
+		                           <div class="heart">
+		                              <img src="img/heart.png">
+		                              <label>6952</label>
+		                           </div>
+		                           <a href="#" class="itemname">222222222222222</a>
+		                           <div class="ft">
+		                              <h4>￥69.00</h4>
+		                              <button>查看</button>
+		                           </div>
+		                        </span>
+               	   	 		</li>
+               	   	 		<li>
+               	   	 			<img src="img/pimg3.jpg">
+               	   	 			<span class="mask">
+		                           <div class="heart">
+		                              <img src="img/heart.png">
+		                              <label>6952</label>
+		                           </div>
+		                           <a href="#" class="itemname">33333333333333</a>
+		                           <div class="ft">
+		                              <h4>￥69.00</h4>
+		                              <button>查看</button>
+		                           </div>
+		                        </span>
+               	   	 		</li>
+               	   	 		<li>
+               	   	 			<img src="img/pimg4.jpg">
+               	   	 			<span class="mask">
+		                           <div class="heart">
+		                              <img src="img/heart.png">
+		                              <label>6952</label>
+		                           </div>
+		                           <a href="#" class="itemname">4444444444444</a>
+		                           <div class="ft">
+		                              <h4>￥69.00</h4>
+		                              <button>查看</button>
+		                           </div>
+		                        </span>
+               	   	 		</li>
+               	   	 		<li>
+               	   	 			<img src="img/pimg1.jpg">
+               	   	 			<span class="mask">
+		                           <div class="heart">
+		                              <img src="img/heart.png">
+		                              <label>6952</label>
+		                           </div>
+		                           <a href="#" class="itemname">555555555555555555</a>
+		                           <div class="ft">
+		                              <h4>￥69.00</h4>
+		                              <button>查看</button>
+		                           </div>
+		                        </span>
+               	   	 		</li>
+                        <li>
+                          <img src="img/pimg4.jpg">
+                          <span class="mask">
+                               <div class="heart">
+                                  <img src="img/heart.png">
+                                  <label>6952</label>
+                               </div>
+                               <a href="#" class="itemname">66666666666666666</a>
+                               <div class="ft">
+                                  <h4>￥69.00</h4>
+                                  <button>查看</button>
+                               </div>
+                            </span>
+                        </li>
+               	   	 	</ul> 
+               	   	 </div>
+               	   	 <div class="lrbtn psame" id="p_right">＞</div>
+               	   </div>
+                   <div class="p_l clearfix" id="p_l2">
+                     <div class="plan psame">
+                      <div class="t_left">
+                         <img src="img/plan_icon.png">
+                         <span>方案一</span>
+                      </div>
+                      <h4>￥422.2</h4>
+                      <button class="addFavorate" type="button">添加收藏</button>
+                      <button class="hate" type="button">我不喜欢</button>
+                     </div>
+                     <div class="lrbtn psame" id="p_left">＜</div>
+                     <div class="center psame">
+                      <ul class="lookImg clearfix" id="lookimg">
+                        <li>
+                          <img src="img/pimg1.jpg">
+                          <span class="mask">
+                               <div class="heart">
+                                  <img src="img/heart.png">
+                                  <label>6952</label>
+                               </div>
+                               <a href="#" class="itemname">11111111111</a>
+                               <div class="ft">
+                                  <h4>￥69.00</h4>
+                                  <button>查看</button>
+                               </div>
+                            </span>
+                        </li>
+                        <li>
+                          <img src="img/pimg2.jpg">
+                          <span class="mask">
+                               <div class="heart">
+                                  <img src="img/heart.png">
+                                  <label>6952</label>
+                               </div>
+                               <a href="#" class="itemname">222222222222222</a>
+                               <div class="ft">
+                                  <h4>￥69.00</h4>
+                                  <button>查看</button>
+                               </div>
+                            </span>
+                        </li>
+                        <li>
+                          <img src="img/pimg3.jpg">
+                          <span class="mask">
+                               <div class="heart">
+                                  <img src="img/heart.png">
+                                  <label>6952</label>
+                               </div>
+                               <a href="#" class="itemname">33333333333333</a>
+                               <div class="ft">
+                                  <h4>￥69.00</h4>
+                                  <button>查看</button>
+                               </div>
+                            </span>
+                        </li>
+                        <li>
+                          <img src="img/pimg4.jpg">
+                          <span class="mask">
+                               <div class="heart">
+                                  <img src="img/heart.png">
+                                  <label>6952</label>
+                               </div>
+                               <a href="#" class="itemname">4444444444444</a>
+                               <div class="ft">
+                                  <h4>￥69.00</h4>
+                                  <button>查看</button>
+                               </div>
+                            </span>
+                        </li>
+                        <li>
+                          <img src="img/pimg1.jpg">
+                          <span class="mask">
+                               <div class="heart">
+                                  <img src="img/heart.png">
+                                  <label>6952</label>
+                               </div>
+                               <a href="#" class="itemname">555555555555555555</a>
+                               <div class="ft">
+                                  <h4>￥69.00</h4>
+                                  <button>查看</button>
+                               </div>
+                            </span>
+                        </li>
+                        <li>
+                          <img src="img/pimg4.jpg">
+                          <span class="mask">
+                               <div class="heart">
+                                  <img src="img/heart.png">
+                                  <label>6952</label>
+                               </div>
+                               <a href="#" class="itemname">66666666666666666</a>
+                               <div class="ft">
+                                  <h4>￥69.00</h4>
+                                  <button>查看</button>
+                               </div>
+                            </span>
+                        </li>
+                      </ul> 
+                     </div>
+                     <div class="lrbtn psame" id="p_right">＞</div>
+                   </div>
+               </div>
+            </div>
+         </div>
+       </div>
+<!--
+<div class="overgray">
+   <div id="logins" class="login_area">
+	   <div class="login_top">
+		   <img src="img/bigLogo.png">
+		   <div class="colse" id="colse">×</div>
+	   </div>
+	   <div class="login_center">
+		   <div class="feedback">
+			   <form id="login_form" enctype="multipart/form-data">
+				   <div class="feed"><label>反馈：</label><textarea></textarea></div>
+				   <div class="feed" >
+					   <label>上传照片:</label><span><input type="file" id="fileimg">+</span>最多上传三张
+				   </div>
+				   <div class="imgpanel" id="img">
+					  <img src="" id="imgShow1" />
+					  <img src="" id="imgShow2" />
+				   </div>
+			   </form>
+		   </div>
+		   <div class="login_bottom">
+			   <a href="#" class="regetbtn sub">提交</a>
+		   </div>
+	   </div>
+   </div>
+</div>-->
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/global.js"></script>
+<script src="js/data.js"></script>
+<script type="text/javascript">
+	 loadAccount(3);
+      $(".sels input").myRadio({cname:".radio"});
+      $("#p_l1").mySlider();
+      $("#p_l2").mySlider();
+      $("#logins").myLogin();;
+      $(".rightMenu .menuName").hover(function(){
+      	 $(this).addClass("now");
+      	 $(this).find(".showCon").css("display","block");
+      },function(){
+      	  $(this).removeClass("now");
+      	  $(this).find(".showCon").css("display","none");
+      }); 
+      /*tab*/
+      var pid=document.getElementById("allcard");
+      $("#next1 div").bind('click',function(){
+          pid.style.webkitTransform=pid.style.transform="translate3d(0px,-100%,0px)";
+      });
+      $("#next2 div").bind('click',function(){
+          pid.style.webkitTransform=pid.style.transform="translate3d(0px,-200%,0px)";
+      });
+  
+     $("#prev1").click(function(){
+         pid.style.webkitTransform=pid.style.transform="translate3d(0px,0%,0px)";
+     });
+     $("#prev2").click(function(){
+         pid.style.webkitTransform=pid.style.transform="translate3d(0px,-100%,0px)";
+     });
+     
+	</script>
+</html>	

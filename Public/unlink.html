@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="css/home.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/basic.css">
+    <title>链接失效</title>
+</head>
+<body>
+<nav class="menu_tool fixed bottomB">
+    <div class="menus">
+        <ul class="nav_list">
+            <li class="logo navs">
+                <img src="img/logo.png">
+            </li>
+            <li class="tab">
+                <a href="index.html">首页</a>
+                <a href="takeSingle.html">搭单身</a>
+                <a href="takeBody.html">搭全身</a>
+                <a href="#">我的数据</a>
+            </li>
+            <li class="nav_right">
+       	   	  	 		 <span href="#" onclick="return false;" class="mycount navBtn"><img src="img/count.jpg" width="100%" height="100%" />
+                           <ul class="pop_count scount">
+                               <li class="user">
+                                   <a href="#">liuxi5505</a>
+                               </li>
+                               <li>
+                                   <a href="baseInfo.html">基本资料</a>
+                               </li>
+                               <li>
+                                   <a href="bindAccount.html">绑定账号</a>
+                               </li>
+                               <li>
+                                   <a href="changepwd.html">修改密码</a>
+                               </li>
+                               <li>
+                                   <a href="myfarivote.html">我的收藏</a>
+                               </li>
+                               <li class="exit">
+                                   <a href="#">退出</a>
+                               </li>
+                           </ul>
+                     </span>
+            </li>
+            <li class="nav_right">
+                <a href="#" onclick="return false;" class="dialog"></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="unlink">
+	<div class="link">
+		<img src="img/unlink.png" />
+		<div class="txt">
+			<h3>抱歉，激活链接失效</h3>
+			<span>将在<label id="num">10</label>秒钟转入<a id="go" href="index.html">首页</a></span>
+		</div>
+	</div>
+</div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/global.js"></script>
+<script type="text/javascript">
+    var time=10;
+    var t=setInterval("togo()",1000);
+    function togo(){
+        time--;
+        $("#num").html(time);
+        if(time==1){
+            window.location.href="index.html";
+            clearInterval(t);
+        }
+    }
+</script>
+</html>

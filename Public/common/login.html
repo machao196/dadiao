@@ -1,0 +1,46 @@
+<input type="hidden" id="status1" value="0" />
+<input type="hidden" id="status2" value="0" />
+<input type="hidden" id="remember" value="0" />
+<div id="logins" class="login_area loginask">
+    <div class="login_top">
+        <img src="img/bigLogo.png">
+        <div class="colse" id="colse">×</div>
+    </div>
+    <div class="login_center">
+        <div class="holder">
+            <div class="buttons">
+                <a href="#" title="微博帐号登录" class="weibo"></a>
+                <a href="#" title="QQ帐号登录" class="qzone"></a>
+                <a href="#" title="豆瓣帐号登录" class="douban"></a>
+                <a href="#" title="人人帐号登录" class="renren"></a>
+            </div>
+            <form id="login_form">
+                <div class="inputWrap">
+                    <input placeholder="邮箱/手机" data_val="1" class="login_input" id="phone" />
+                    <i class="infoicon right"></i>
+                </div>
+                <div class="inputWrap">
+                    <input placeholder="输入密码" data_val="2" class="login_input" id="pwd" />
+                    <i class="infoicon right"></i>
+                </div>
+                <a href="#" class="regetbtn" id="login">登录</a>
+                <div class="protol">
+                   <span class="check-wrapp floatL">
+                      <input type="checkbox" id="che" class="ischs">
+                      <label for="che" class="chs"></label>
+                   </span>
+                    <span class="remember">记住登录状态</span>
+                </div>
+            </form>
+        </div>
+        <div class="login_bottom">
+            <a href="#">注册</a>或<a href="#">找回密码</a>
+        </div>
+    </div>
+</div>
+<div class="login_info error">
+    <em><</em><i class="infoicon"></i><span id="txt"></span>
+</div>
+<div class="login_info pwd">
+    <em><</em><i class="infoicon"></i><span id="txt"></span>
+</div>

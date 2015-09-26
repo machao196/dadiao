@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+     <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="css/home.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+        <title>搭单身</title>
+	</head>
+    <body style="background:#f7f7f7;">
+       <div class="same singleWrapper">
+		   <nav class="menu_tool abs bottomB" id="navi"></nav>
+           <div class="sbanner sameWrapp"></div>
+           <div class="queryStore sameWrapp">
+			   <div class="storesTitle">
+				   <span class="title">牛仔裤</span>
+				   <label>0-100元</label><label>101-200元</label>
+				   <label>201-500元</label>
+				   <input type="text" /><label>-</label>
+				   <input type="text" />
+				   <span class="btn">确定</span>
+				   <a target="_blank" href="mydata.html" class="data">修改我的数据>></a>
+			   </div>
+			   <div id="waterflow" class="queryStore">
+				   <div class="datalist">
+					   <div class="dataitem clearfix"></div>
+				   </div>
+			   </div>
+			   <div id="Pagination" class="Pagination"></div>
+           </div>
+       </div>
+       <div class="rightMenu">
+       	   <div class="menuName">
+       	   	   <p>衣服</p>
+       	   	   <p class="img img1"></p>
+       	   	   <div class="showCon" id="showMemu">111</div>
+       	   </div>
+       	   <div class="menuName">
+       	   	   <p>鞋子</p>
+       	   	   <p class="img img2"></p>
+       	   	   <div class="showCon"></div>
+       	   </div>
+       </div>
+	<input type="hidden" value="0" id="hid"/><input type="hidden" value="0" id="curpage"/>
+    </body>
+	<script src="js/jquery.min.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/tool.js"></script>
+    <script src="js/pagination.js"></script>
+	<script type="text/javascript">
+	  loadAccount(2);
+	  innerhtml.rightMenu("#showMemu");
+	  $("#waterflow").waterFlow();
+	  /*getSize("");
+	  function getSize(params){
+		  var tt="";
+		  if(params!=""){
+			  params['offset']=0;
+			  tt=params;
+		  }else{
+			  tt={"Offset":0,"Rows":10};
+		  }
+		  sendAjax("api/clothes/lists",tt,function(json){
+			  if(json.code==10000){
+				  var zcount=json.data.count;
+				  $("#waterflow").waterFlow(zcount,tt);
+			  }
+		  });
+	  }*/
+	 //
+      $(".rightMenu .menuName").hover(function(){
+      	 $(this).addClass("now");
+      	 $(this).find(".showCon").css("display","block");
+      },function(){
+      	  $(this).removeClass("now");
+      	  $(this).find(".showCon").css("display","none");
+      }); 
+  
+	</script>
+</html>	
