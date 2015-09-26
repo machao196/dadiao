@@ -218,8 +218,8 @@
                 </div>
             </div>
             <div class="goTune">
-                <a href="#" id="goTake" class="btn">现在就去搭配一身</a>
-                <a href="#" class="prefect" id="prefect">完善数据</a>有惊喜哦!
+                <a href="javascript:void(0)" id="goTake" class="btn">现在就去搭配一身</a>
+                <a href="javascript:void(0)" class="prefect" id="prefect">完善数据</a>有惊喜哦!
             </div>
         </div>
     </div>
@@ -312,7 +312,7 @@
                                                <img src="img/heart.png">
                                                <label>6952</label>
                                            </div>
-                                           <a href="#" class="itemname">韩式复古高腰牛仔阔腿短裤</a>
+                                           <a href="javascript:void(0)" class="itemname">韩式复古高腰牛仔阔腿短裤</a>
                                            <div class="ft">
                                                <h4>￥69.00</h4>
                                                <button>查看</button>
@@ -399,9 +399,9 @@
        if(dataValidate()){
            var data = [{"K": "身高", "V": [$("#sg").val()]}, {"K": "体重", "V": [$("#height").val()]}, {"K": "肤色", "V": [$("#fs").val()]}, {"K": "身材类型","V": [$("#sclx").val()]
            },{"K": "廓形感", "V": [$("#kxg").val()]}, {"K": "性格类型", "V": [$("#xgpd").val()]}];
-           /*sendAjax("./api/user/setdata",data,function(data){
+           sendAjax("./api/user/setdata",data,function(data){
                console.log(data);
-           });*/
+           });
        }
     }
     function dataValidate(){

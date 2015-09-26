@@ -107,7 +107,7 @@
 		num_display_entries:5,  //显示页码的个数
 		current_page:0,  //当前页    
 		num_edge_entries:0,
-		link_to:"#",
+		link_to:"javascript:void(0)",
 		prev_text:"<<上一页",
 		next_text:"下一页>>",
 		shouye:"首页",

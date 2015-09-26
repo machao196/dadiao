@@ -1,5 +1,6 @@
 /*瀑布流*/
 var count=0;
+var curpage = 0;
 $.fn.waterFlow=function(zcount,params){
     var t=this,$t=$(this),_twidth=this.width();
     var iner= $("#waterflow .dataitem");
@@ -9,50 +10,53 @@ $.fn.waterFlow=function(zcount,params){
 
     var _init=function(){
         //var cid=getid("waterflow");
-        ajaxLoad(0);
+        ajaxLoad(0,false);
         window.onscroll=function(){
-            var hid=$("#hid").val();
-            if(temp<4 && hid < count) {console.log(lock);
-                if (marqueeLoad() && !lock) {console.log("----------------------");
+            var hid=parseInt($("#hid").val());
+            if(temp<4 && hid < count) {
+                if (marqueeLoad() && !lock) {
                     lock = true;
-                    ajaxLoad(hid);
-
+                    ajaxLoad(hid,false);
                 }
             }
         }
     }
 
-    var ajaxLoad=function(offset){
+    var ajaxLoad=function(offset,isnewpage){
         var cid=document.getElementById("waterflow");
         sendAjax("api/clothes/lists",{"Offset":offset,"Rows":shownum},function(json) {
             var obj=json.data.list;
             $("#hid").val(parseInt(json.data.offset)+parseInt(json.data.rows));
-            iner.append(innerhtml.singleList(obj,obj.length));
-            setImgPos(cid, "item");count=json.data.count;
+            var html = innerhtml.singleList(obj,obj.length);
+            if(isnewpage){
+              iner.html(html);  
+            }else{
+              iner.append(html);  
+            }
+            
+            setImgPos(cid, "item");
+            count=json.data.count;
             lock=false;
             temp++;
            var hid =  parseInt($("#hid").val());
             if((hid<count && temp == 4) || hid >= count){
-                _html();
+                _showPage();
             }
         });
 
     }
-    var _html=function(){
-        var hid=parseInt($("#hid").val());
-        //var startnum=$(".datalist item")
-       // alert(parseInt(hid/maxcount)-1);
-       console.log(parseInt(hid/maxcount)-1);
-
-        console.log('0000000')
-        var cid=getid("waterflow");
+    var _showPage=function(){
         function pageSelect(page_index){
-            var cury=page_index;temp=0;
+                temp=0;
                 lock = true;
-                ajaxLoad(page_index*maxcount);
+                curpage = page_index;
+                ajaxLoad(page_index*maxcount,true);
                 $(".pagination").remove();
+                $("#waterflow .dataitem").css({"height":450+"px"});
         }
-        var opt={"items_per_page":maxcount,current_page:parseInt(hid/maxcount)-1,callback:pageSelect};
+        var opt={"items_per_page":maxcount,current_page:curpage,callback:pageSelect};
+        console.log(opt);
+        console.log(count);
         $("#Pagination").pagination(count,opt);
     }
     var setImgPos=function(cid,its){
@@ -62,6 +66,7 @@ $.fn.waterFlow=function(zcount,params){
         var num=Math.floor(_twidth/iwidth); //计算一行可以放几张图片
         var zwidth=num*iwidth,maxh;
         var fristrow=[];//存放第一行的高度
+        //console.log(imgnum);
         for(var j=0;j<imgnum;j++){
            if(j<num){ //第一行
                fristrow[j]=imgobj[j].offsetHeight;
