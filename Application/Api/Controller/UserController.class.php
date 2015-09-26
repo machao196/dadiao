@@ -110,13 +110,16 @@ class UserController extends ApiController {
                 }
                 $hPName = $hPItem['K'];
     	        $haveSet = $HumanParams->where("UserID='%d' and UPName='%s'",$this->getCurUserID(),$hPName)->delete();
-                foreach($hPItem['V'] as $hpValue){
+                foreach($hPItem['V'] as $hpValueID){
+                    $hpValue = '';
                     if($hPName == '身高'){
-                        $hpValue = $this->getHeight($hpValue);
+                        $hpValue = $hpValueID;
+                        $hpValueID = $this->getHeight($hpValueID);
                     }elseif($hPName == '体重'){
-                        $hpValue = $this->getWeight($hpValue);
+                        $hpValue = $hpValueID;
+                        $hpValueID = $this->getWeight($hpValueID);
                     }
-                    $data = array('UPName'=>$hPName,'UPValueID'=>$hpValue,'UserID'=>$this->getCurUserID());
+                    $data = array('UPName'=>$hPName,'UPValueID'=>$hpValueID,'UPValue'=>$hpValue,'UserID'=>$this->getCurUserID());
                    // print_r($data);exit;
                     $v = $HumanParams->data($data)->add();
                     //print_r($v);exit;

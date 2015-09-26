@@ -154,7 +154,7 @@
                     <label class="sex" for="sro1">
                         <div class="sex_xq"><img src="img/sextype1.jpg" /></div>
                         <span class="check-wrapp sex_xq sexradio">
-                           <input type="checkbox"  id="sro1" value="23" class="isnone ischeck">
+                           <input type="checkbox"  id="sro1" name="character" value="23" class="isnone ischeck">
                            <label class="check-lable"></label>
                          </span>
                         <span class="sex_xq sexms">脸部线条清晰，身材高大，大骨骼，五官立体，夸张大气，存在感强</span>
@@ -162,7 +162,7 @@
                     <label class="sex" for="sro2">
                         <div class="sex_xq"><img src="img/sextype2.jpg" /></div>
                         <span class="check-wrapp sex_xq sexradio">
-                           <input type="checkbox" id="sro2" value="24" class="isnone ischeck">
+                           <input type="checkbox" id="sro2" name="character" value="24" class="isnone ischeck">
                            <label class="check-lable"></label>
                         </span>
                         <span class="sex_xq sexms">脸部线条直线感强，身材无明显曲线，呈直线型，五官亲近感强，性格开朗随和，潇洒</span>
@@ -170,7 +170,7 @@
                     <label class="sex" for="sro3">
                         <div class="sex_xq"><img src="img/sextype3.jpg" /></div>
                         <span class="check-wrapp sex_xq sexradio">
-                           <input type="checkbox" id="sro3" value="25" class="isnone ischeck">
+                           <input type="checkbox" id="sro3" name="character" value="25" class="isnone ischeck">
                            <label class="check-lable"></label>
                         </span>
                         <span class="sex_xq sexms">脸部线条适中，身材适中，五官传统端庄，个性严谨传统</span>
@@ -178,7 +178,7 @@
                     <label class="sex" for="sro4">
                         <div class="sex_xq"><img src="img/sextype4.jpg" /></div>
                         <span class="check-wrapp sex_xq sexradio">
-                           <input type="checkbox" id="sro4" value="26" class="isnone ischeck">
+                           <input type="checkbox" id="sro4" name="character" value="26" class="isnone ischeck">
                            <label class="check-lable"></label>
                         </span>
                         <span class="sex_xq sexms">脸部线条柔美圆润，身材圆润，五官精致，温柔内敛</span>
@@ -186,7 +186,7 @@
                     <label class="sex" for="sro5">
                         <div class="sex_xq"><img src="img/sextype5.jpg" /></div>
                         <span class="check-wrapp sex_xq sexradio">
-                           <input type="checkbox" id="sro5" value="27" class="isnone ischeck">
+                           <input type="checkbox" id="sro5" name="character" value="27" class="isnone ischeck">
                            <label class="check-lable"></label>
                         </span>
                         <span class="sex_xq sexms">脸部线条圆润，五官曲线感强，身材丰满圆润，有女人味，妩媚性感</span>
@@ -194,7 +194,7 @@
                     <label class="sex" for="sro6">
                         <div class="sex_xq"><img src="img/sextype6.jpg" /></div>
                         <span class="check-wrapp sex_xq sexradio">
-                           <input type="checkbox" id="sro6" value="28" class="isnone ischeck">
+                           <input type="checkbox" id="sro6" name="character" value="28" class="isnone ischeck">
                            <label class="check-lable"></label>
                         </span>
                         <span class="sex_xq sexms">脸部线条清晰，五官精致，身材骨感，性格外向</span>
@@ -202,7 +202,7 @@
                     <label class="sex" for="sro7">
                         <div class="sex_xq"><img src="img/sextype7.jpg" /></div>
                         <span class="check-wrapp sex_xq sexradio">
-                           <input type="checkbox" id="sro7" value="29" class="isnone ischeck">
+                           <input type="checkbox" id="sro7" name="character" value="29" class="isnone ischeck">
                            <label class="check-lable"></label>
                         </span>
                         <span class="sex_xq sexms">脸部线条清晰，五官有力量感，身材呈直线型，帅气干练，性格直爽</span>
@@ -210,7 +210,7 @@
                     <label class="sex" for="sro8">
                         <div class="sex_xq"><img src="img/sextype8.jpg" /></div>
                         <span class="check-wrapp sex_xq sexradio">
-                           <input type="checkbox" id="sro8" value="30" class="isnone ischeck">
+                           <input type="checkbox" id="sro8" name="character" value="30" class="isnone ischeck">
                            <label class="check-lable"></label>
                         </span>
                         <span class="sex_xq sexms">脸部线条圆润，五官稚嫩天真，身材骨骼偏小，不高大，性格开朗活泼</span>
@@ -388,19 +388,57 @@
     //query
     sendAjax("./api/user/getparams","",function(json){
         if(json.code==10000){
-           /* for(var i=0;i<json.data.length;i++){
-
-            }*/
+            for(var i=0;i<json.data.length;i++){
+              switch(json.data[i].upname){
+                  case '身高':
+                    $("#sg").val(json.data[i].upvalue);
+                    break;
+                  case '体重':
+                    $("#height").val(json.data[i].upvalue);
+                    break;
+                  case '肤色':
+                    $.each($("[name=skin]"),function(index,item){
+                      if($(item).val() == json.data[i].upvalueid){
+                        $(item).parents("label").click();
+                      }
+                    });
+                    break;
+                  case '身材类型':
+                    $.each($("[name=btypes]"),function(index,item){
+                      if($(item).val() == json.data[i].upvalueid){
+                        $(item).parents("label").click();
+                      }
+                    });
+                    break;
+                  case '廓形感':
+                    $.each($("[name=outlines]"),function(index,item){
+                      if($(item).val() == json.data[i].upvalueid){
+                        $(item).parents("label").click();
+                      }
+                    });
+                    break;
+                  case '性格类型':
+                    $.each($("[name=character]"),function(index,item){
+                      if($(item).val() == json.data[i].upvalueid){
+                        $(item).parents("label").click();
+                      }
+                    });
+                    break;
+              }  
+            }
             //console.log(json.data[0].hpname+"   "+json.data[0].hpvalue);
         }
     });
+
     $("#goTake").bind('click',saveData);
     function saveData(){
        if(dataValidate()){
            var data = [{"K": "身高", "V": [$("#sg").val()]}, {"K": "体重", "V": [$("#height").val()]}, {"K": "肤色", "V": [$("#fs").val()]}, {"K": "身材类型","V": [$("#sclx").val()]
            },{"K": "廓形感", "V": [$("#kxg").val()]}, {"K": "性格类型", "V": [$("#xgpd").val()]}];
-           sendAjax("./api/user/setdata",data,function(data){
-               console.log(data);
+           sendAjax("./api/user/setdata",{"Data":JSON.stringify(data)},function(data){
+               if(data.code == '10000'){
+                  window.location = "./takeSingle.html";
+               }
            });
        }
     }
